@@ -13,7 +13,9 @@ export default function App() {
   const [user, setUser] = useState(getUser());
 
   return (
+
     <main className="App">
+      
       {user ? (
         <>
           <Header />
@@ -21,7 +23,7 @@ export default function App() {
           <Routes>
             {/* Route components in here */}
             <Route path="/orders/new" element={<NewOrderPage />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </>
       ) : (
