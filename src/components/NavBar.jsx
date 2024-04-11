@@ -10,33 +10,49 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav
-      className="w-full flex sticky p-4 mx-auto top-0 z-20 md:items-center lg:items-center xl:items-center
-    border border-black/30 "
+      className="w-full h-50 flex sticky p-4 mx-auto top-0 z-20 md:items-center lg:items-center xl:items-center
+    border border-black/30 space-between bg-[#FFFFFF]"
     >
+      <div>
+
+      </div>
+
       <div className="w-48">
-        <Link to="/home" className="">
+        <Link to="/" className="">
           <img src="/images/Prestigelogo.webp" className="w-full h-full"></img>
         </Link>
       </div>
 
       <div className="flex mx-auto gap-12 ">
-        <div className="hover:bg-gray-500 w-30">
+        <div className="hover:text-blue-500">
           <Link to="/categories">
-            <button className="uppercase font-bold w-full h-full">Categories</button>
+            <button className="uppercase font-bold w-full h-full">
+              Categories
+            </button>
           </Link>
         </div>
         &nbsp; | &nbsp;
-        <div className="hover:bg-gray-500 w-30 ">
+        <div className="hover:text-blue-500">
           <Link to="/orders">
-            <button className="uppercase font-bold w-full h-full">Orders</button>
+            <button className="uppercase font-bold w-full h-full">
+              Orders
+            </button>
           </Link>
         </div>
         &nbsp; | &nbsp;
-        <div className="hover:bg-gray-500 w-30">
+        <div className="hover:text-blue-500">
           <Link to="/team">
-            <button className="uppercase font-bold w-full h-full">Meet The Team</button>
+            <button className="uppercase font-bold w-full h-full">
+              Meet The Team
+            </button>
           </Link>
         </div>
+      </div>
+
+      <div>
+        <Link to="" onClick={handleLogOut}>
+          Log Out{" "}
+        </Link>
       </div>
     </nav>
   );
