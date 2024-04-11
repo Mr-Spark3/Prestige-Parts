@@ -4,7 +4,7 @@ import { getUser } from "../../utilities/users-service";
 import "./App.css";
 import AuthPage from "../AuthPage/AuthPage";
 import NewOrderPage from "../NewOrderPage/NewOrderPage";
-import Home from "../Home/Home";
+import HomePage from "../Home/HomePage";
 import NavBar from "../../components/NavBar";
 import "../../styles/globals.css";
 import Header from "../../components/Header";
@@ -23,7 +23,7 @@ export default function App() {
           <Routes>
             {/* Route components in here */}
             <Route path="/orders/new" element={<NewOrderPage />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<HomePage />} />
           </Routes>
         </>
       ) : (
