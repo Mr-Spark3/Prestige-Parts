@@ -58,26 +58,3 @@ export default function NavBar({ user, setUser }) {
   );
 }
 
-{
-  /* <div className="flex">
-<Link to="/orders/new">
-  <div className="h-7 w-7">
-    <ShoppingCartIcon className="w-full h-full" />
-  </div>
-</Link>
-
-<div className="h-7 w-7">
-  <Bars3Icon className="w-full h-full" />
-  <ul className="hidden">
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</div>
-
-// {/* <span>Welcome, {user && user.name}</span> */
-}
-// <Link to="" onClick={handleLogOut}>
-//   Log Out
-// </Link>
-// </div> */}
