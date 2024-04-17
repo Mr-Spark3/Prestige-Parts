@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import fetch from "node-fetch";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import TypeWriter from "./TypeWriter";
+import SearchBar from "./SearchBar";
 
 function VinDecoder() {
   const { text } = useTypewriter({
@@ -13,7 +15,7 @@ function VinDecoder() {
     loop: true,
     delaySpeed: 200,
   });
-  // State variables
+
   const [vin, setVin] = useState("");
   const [error, setError] = useState(null);
   const [vehicleInfo, setVehicleInfo] = useState(null);
@@ -24,14 +26,23 @@ function VinDecoder() {
   const [engine, setEngine] = useState("");
   const [transmission, setTransmission] = useState("");
   const [trim, setTrim] = useState("");
-  // const [makes, setMakes] = useState([]);
-  // const [models, setModels] = useState([]);
-  // const [years, setYears] = useState([]);
-  // const [selectedMake, setSelectedMake] = useState("");
-  // const [selectedModel, setSelectedModel] = useState("");
-  // const [selectedYear, setSelectedYear] = useState("null");
+  const [parts, setParts] = useState([]);
+  const [filteredParts, setFilteredParts] = useState([]);
 
-  // VIN decode function
+  const navigate = useNavigate();
+
+  const handleSearch = (query) => {
+    // Ensure query is a string
+    const queryString = query.toString();
+  
+    console.log("Searching for:", queryString);
+    const filteredParts = parts.filter((part) =>
+      part.description.toLowerCase().includes(queryString.toLowerCase())
+    );
+    setFilteredParts(filteredParts);
+    navigate("/parts");
+  };
+
   async function handleVinDecode() {
     try {
       console.log("Sending request to API with VIN:", vin);
@@ -50,7 +61,6 @@ function VinDecoder() {
         throw new Error("No results found for the VIN");
       }
 
-      // Extract vehicle info
       const info = {
         year:
           results.find((result) => result.Variable === "Model Year")?.Value ||
@@ -77,70 +87,18 @@ function VinDecoder() {
       setTrim(info.trim);
       setSeries(info.series);
       setVehicleInfo(info);
+
+      // Update parts state with the fetched data
+      setParts([...results]);
     } catch (error) {
       console.error("Error decoding VIN:", error);
       setError(error.message);
     }
   }
 
-  // useEffect(() => {
-  //   fetch("https://vpic.nhtsa.dot.gov/api/vehicles/GetAllMakes?format=json")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       const filteredMakes = data.Results.filter(
-  //         (make) =>
-  //           make.Make_Name === "DODGE" ||
-  //           make.Make_Name === "RAM" ||
-  //           make.Make_Name === "JEEP" ||
-  //           make.Make_Name === "CHRYSLER" ||
-  //           make.Make_Name === "FIAT"
-  //       );
-  //       setMakes(filteredMakes);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching makes:", error);
-  //       setError(error.message);
-  //     });
-  // }, []);
-
-  // // Fetch models for selected make
-  // useEffect(() => {
-  //   console.log(selectedMake);
-  //   if (selectedMake) {
-  //     fetch(
-  //       `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${selectedMake}?format=json`
-  //     )
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setModels(data.Results);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching models:", error);
-  //         setError(error.message);
-  //       });
-  //   }
-  // }, [selectedMake]);
-
-  // // Fetch model years for selected make and model
-  // useEffect(() => {
-  //   if (selectedMake && selectedModel && selectedYear) {
-  //     fetch(
-  //       `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/${selectedMake}/${selectedModel}/${year}?format=json`
-  //     )
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setYears(data.Results);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching model years:", error);
-  //         setError(error.message);
-  //       });
-  //   }
-  // }, [selectedMake, selectedModel, selectedYear]);
   return (
     <div className="flex justify-center flex-col bg-black bg-opacity-50 mt-20">
       <div className="flex justify-center mb-10 ">
-        {/* Use Typewriter component with proper words array */}
         <h1 className="text-2xl lg:text-4xl font-semibold px-10 mt-10 text-white">
           <TypeWriter
             words={[
@@ -155,7 +113,6 @@ function VinDecoder() {
         </h1>
       </div>
 
-      {/* VIN input and decode button */}
       <div className="flex justify-center flex-col">
         <div className="flex justify-center mb-10">
           <input
@@ -177,83 +134,48 @@ function VinDecoder() {
         <div>
           {vehicleInfo && (
             <form className="mt-4 flex justify-center text-white text-semibold text-2xl">
-              <input type="text" className="bg-black/50" value={year} readOnly />
-              <input type="text" className="bg-black/50" value={make} readOnly />
-              <input type="text" className="bg-black/50" value={model} readOnly />
-              <input type="text" className="bg-black/50" value={series} readOnly></input>
+              <input
+                type="text"
+                className="bg-black/50"
+                value={year}
+                readOnly
+              />
+              <input
+                type="text"
+                className="bg-black/50"
+                value={make}
+                readOnly
+              />
+              <input
+                type="text"
+                className="bg-black/50"
+                value={model}
+                readOnly
+              />
+              <input
+                type="text"
+                className="bg-black/50"
+                value={series}
+                readOnly
+              ></input>
             </form>
           )}
+        </div>
+        <div className="flex flex-row justify-center">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 rounded"
+            onClick={() => navigate("/parts")}
+          >
+            Continue
+          </button>
         </div>
       </div>
 
       {error && <p className="text-red-500 mt-2">{error}</p>}
-
-      {/* Manual selection dropdowns */}
-      {/* <div>
-        <select
-          value={selectedMake}
-          onChange={(e) => setSelectedMake(e.target.value)}
-        >
-          <option key="default-make" value="">
-            Select Make
-          </option>
-          {makes.map((make) => (
-            <option key={make.Make_ID.toString()} value={make.Make_Name}>
-              {make.Make_Name}
-            </option>
-          ))}
-        </select>
-        <select
-          value={selectedModel}
-          onChange={(e) => setSelectedModel(e.target.value)}
-        >
-          <option key="default-model" value="">
-            Select Model
-          </option>
-          {models.map((model) => (
-            <option key={model.Model_ID.toString()} value={model.Model_Name}>
-              {model.Model_Name}
-            </option>
-          ))}
-        </select>
-        <select
-          value={selectedYear}
-          onChange={(e) => setSelectedYear(e.target.value)}
-        >
-          <option key="default-year" value="">
-            Select Year
-          </option>
-          {years &&
-            years.length > 0 &&
-            years.map((year, index) => (
-              <option key={index} value={year.ModelYear}>
-                {year.ModelYear}
-              </option>
-            ))}
-        </select>
-        <select value={engine} onChange={(e) => setEngine(e.target.value)}>
-          <option key="default" value="">
-            Select Engine
-          </option>
-          {/* Populate options dynamically */}
-      {/* </select>
-        <select
-          value={transmission}
-          onChange={(e) => setTransmission(e.target.value)}
-        >
-          <option key="default" value="">
-            Select Transmission
-          </option>
-          {/* Populate options dynamically */}
-      {/* </select>
-        <select value={trim} onChange={(e) => setTrim(e.target.value)}>
-          <option key="default" value="">
-            Select Trim
-          </option> */}
-      {/* Populate options dynamically */}
-      {/* </select> */}
-      {/* </div> */}
     </div>
   );
 }
+
 export default VinDecoder;
+
+

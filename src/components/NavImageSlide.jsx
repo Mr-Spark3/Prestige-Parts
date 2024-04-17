@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-  "/images/TireDeal.png",
-  "/images/GC4xe.avif",
-  "/images/BuyCar.webp"
+  "/images/chryslerlogo.webp",
+  "/images/dodgelogo.webp",
+  "/images/ramlogo.webp",
+  "/images/jeeplogo.webp"
+
 ];
 
 function useInterval(callback, delay) {
@@ -25,7 +27,7 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
-function ImageSlider() {
+function NavImageSlider() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => {
@@ -37,7 +39,7 @@ function ImageSlider() {
   }, 5000);
 
   return (
-    <div className=" w-[75] h-[300px] flex justify-center object-cover filter brightness-100 contrast-100 shadow-lg">
+    <div className="w-12 h-12 flex justify-center object-cover filter brightness-100 contrast-100 shadow-lg mr-10 ml-10">
       <AnimatePresence mode="wait">
         <motion.img
           key={currentImage}
@@ -53,4 +55,4 @@ function ImageSlider() {
   );
 }
 
-export default ImageSlider;
+export default NavImageSlider;

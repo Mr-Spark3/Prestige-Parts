@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/solid";
+import {  MailIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 
 
 export default function Header() {
@@ -12,14 +12,14 @@ export default function Header() {
 
         <div className="flex gap-3">
         <div className="flex">
-            <MapPinIcon className="w-6 h-6 text-gray-500 " />
+            <LocationMarkerIcon className="w-6 h-6 text-gray-500 " />
             <h1 className="ml-2 uppercase text-sm text-gray-500">Map</h1>
         </div>
 
         &nbsp; | &nbsp; 
 
       <div className="flex ">
-        <EnvelopeIcon className="w-6 h-6 text-gray-500"/>
+        <MailIcon className="w-6 h-6 text-gray-500"/>
         <h1 className="ml-2 uppercase text-sm mr-20 text-gray-500 ">Contact</h1>
       </div>
       </div>
