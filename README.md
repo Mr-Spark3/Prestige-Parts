@@ -1,5 +1,8 @@
-Prestige Parts Store App
-Welcome to the Prestige Parts store Website project! This website is designed to make getting the right parts easier. While still getting the same OEM manufacturing quality.
+PRESTIGE PARTS STORE APP
+
+
+
+Welcome to the Prestige Parts store Website project! This website is designed to make getting the right parts easier. While still getting the same OEM manufacturing quality. Prestige is a growing dealer, and with all the new business the dealer will soon be undergoing a remodel. With the chaos of the remodel it will become more difficult for customers to reach the parts department in person, so the perfect solution is to expand business online. With the new store The Prestige Parts department will have a new source of income to make up for what may be lost during the remodel. 
 
 
 
