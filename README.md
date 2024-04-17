@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+PRESTIGE PARTS STORE APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+Welcome to the Prestige Parts store Website project! This website is designed to make getting the right parts easier. While still getting the same OEM manufacturing quality. Prestige is a growing dealer, and with all the new business the dealer will soon be undergoing a remodel. With the chaos of the remodel it will become more difficult for customers to reach the parts department in person, so the perfect solution is to expand business online. With the new store The Prestige Parts department will have a new source of income to make up for what may be lost during the remodel. 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Tech Stack
 
-### `npm test`
+ HTML, 
+ TailWind CSS, 
+ JavaScript, 
+ Express,
+ Mongo Db,
+ React,
+ Framer-Motion, (animations)
+ Type-Writer (typing effect)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Screenshots
+<img width="1792" alt="Screenshot 2024-04-17 at 10 02 29 AM" src="https://github.com/Mr-Spark3/Prestige-Parts/assets/152821427/66ecf59d-5cdc-49dc-9f81-472fb3e7f897">
+<img width="1792" alt="Screenshot 2024-04-17 at 10 02 52 AM" src="https://github.com/Mr-Spark3/Prestige-Parts/assets/152821427/f3579e8f-1918-4a87-9268-3e92d55bcf12">
+<img width="1792" alt="Screenshot 2024-04-17 at 10 03 05 AM" src="https://github.com/Mr-Spark3/Prestige-Parts/assets/152821427/fce10fe9-29a3-4fbb-bf37-ea28532ded6c">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Features
+User authentication and authorization
+Vin Decode 
+Part Search 
+Save Order
 
-### `npm run eject`
+Authors
+Jordan Hade 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Heroku - Cloud platform for deployment
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
